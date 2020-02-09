@@ -18,7 +18,6 @@ function App() {
     ethereum.enable().then(function(accounts){
       console.log(accounts)
     })
-
   }
 
   return (
