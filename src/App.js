@@ -22,6 +22,7 @@ function App() {
 
   const ethereum = window.ethereum;
   const [config, setConfig] = useState('');
+  let network = true;
 
   // run at init
   useEffect(() => {
@@ -29,8 +30,11 @@ function App() {
       if (typeof ethereum !== 'undefined') {
         ethereum.enable().then(async function (accounts) {
           const gameSetup = await gameData.initWithWeb3(web3, accounts[0]);
-          setConfig(gameSetup);
-          console.log(gameSetup);
+          if(gameSetup){
+            setConfig(gameSetup);
+          } else {
+            network = false;
+          }
         }).catch(function (reject) {
           console.log(reject)
         })
@@ -52,15 +56,14 @@ function App() {
     }
     accountChange();
 
-    console.log(config.address)
-  }, [ethereum]);
+  }, [ethereum, config.address]);
 
   return (
     <div className="App">
       <header className="App-header">
-        {console.log(config)}
-        {ethereum && <p>Your ethereum address: {config.address}</p> }
-        {!ethereum && <p>Get MetaMask!</p>}
+        {ethereum && network && <p>Your ethereum address: {config.address}</p> }
+        {!ethereum && !network && <p>Get MetaMask!</p>}
+        {ethereum && !network && <p>Contract address on this network doesn't exist!</p>}
         <Blockie address={config.address}/>
       </header>
     </div>

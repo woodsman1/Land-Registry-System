@@ -1,12 +1,13 @@
 import makeBlockie from "ethereum-blockies-base64";
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Blockie(props) {
   let www = "http://etherscan.io/address/" + props.address;
-  if (typeof (props.address) !== 'undefined') {
+  if (props.address.length > 0 && typeof(props.address) !== 'undefined') {
     return (
-      <a href={www} target="_blank">
-        <img src={makeBlockie(props.address)}/>
+      <a href={www} target="_blank" rel="noopener noreferrer">
+        <img src={makeBlockie(props.address)} alt="blockie"/>
       </a>
     );
   } else {
@@ -15,3 +16,12 @@ function Blockie(props) {
 }
 
 export default Blockie;
+
+
+Blockie.defaultProps = {
+  address: ''
+};
+
+Blockie.propTypes = {
+  address: PropTypes.string
+};
