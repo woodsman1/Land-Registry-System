@@ -2,8 +2,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Blockie from './component/blockie.js';
+import Web3 from 'web3';
 
-const Web3 = require('web3');
 const gameData = require('./model/gameData.js');
 // const k = require('./config/constants.js');
 // const axios = require('axios');
@@ -22,18 +22,19 @@ function App() {
 
   const ethereum = window.ethereum;
   const [config, setConfig] = useState('');
-  let network = true;
+  let [network, setNetwork] = useState(true);
 
   // run at init
   useEffect(() => {
     async function fetchData() {
       if (typeof ethereum !== 'undefined') {
+        ethereum.autoRefreshOnNetworkChange = false;
         ethereum.enable().then(async function (accounts) {
           const gameSetup = await gameData.initWithWeb3(web3, accounts[0]);
           if(gameSetup){
             setConfig(gameSetup);
           } else {
-            network = false;
+            setNetwork(false);
           }
         }).catch(function (reject) {
           console.log(reject)
@@ -41,6 +42,7 @@ function App() {
       }
     }
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // run on redraw
