@@ -1,26 +1,19 @@
-import Web3 from 'web3';
-
-let selectedAccount;
-
-export const init = async () => { 
+export const getAccount = async () => { 
   
   let provider = window.ethereum;
 
   if(typeof provider !== 'undefined'){
-    console.log('here')
-    // metamask is installed   
-    
-    provider.request({method: 'eth_requestAccounts'}).then(accounts => {
-      selectedAccount = accounts[0];
-      console.log(accounts)
-      console.log(`Selected account changed to ${selectedAccount}`);
+    // metamask is installed
+    let account_address = ''
+    await provider.request({method: 'eth_requestAccounts'}).then((accounts) => {
+      // console.log(accounts[0])
+      account_address = accounts[0]
     }).catch(err => {
       console.log(err);
+      return "error";
     })
-
-    window.ethereum.on('accountsChanged', function (accounts) {
-			selectedAccount = accounts[0];
-			console.log(`Selected account changed to ${selectedAccount}`);
-		});
+    return account_address
   }
+
+  console.log("MetaMask wallet not found")
 }
