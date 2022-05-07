@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
-import { addAsset } from './InteractToContract';
+import React, { useState } from "react";
+import { addAsset } from "./InteractToContract";
 
-const AddAsset = ({contract, userAddress}) => {
-
+const AddAsset = ({ contract, userAddress }) => {
   const [assetId, setAssetId] = useState(-1);
   const [ownerAddress, setOwnerAddress] = useState("");
   const [assetValue, setAssetValue] = useState(0);
 
   const onSubmit = async () => {
-    await addAsset(contract, assetId, ownerAddress, assetValue, userAddress)
-  }
+    await addAsset(contract, assetId, ownerAddress, assetValue, userAddress);
+  };
 
   return (
     <>
-      <h1>Add Inspector</h1> 
+      <h1>Add Inspector</h1>
       <label>Asset Id Number : </label>
       <input
         type="number"
@@ -23,8 +22,8 @@ const AddAsset = ({contract, userAddress}) => {
           setAssetId(e.target.value);
         }}
       />
-      <br/>
-      <label>Asset Owner Address:  </label>
+      <br />
+      <label>Asset Owner Address: </label>
       <input
         type="text"
         required
@@ -33,8 +32,8 @@ const AddAsset = ({contract, userAddress}) => {
           setOwnerAddress(e.target.value);
         }}
       />
-      <br/>
-      <label>Asset Value :  </label>
+      <br />
+      <label>Asset Value : </label>
       <input
         type="number"
         required
@@ -43,10 +42,13 @@ const AddAsset = ({contract, userAddress}) => {
           setAssetValue(e.target.value);
         }}
       />
-      <br/>
-      <button type="button" onClick={onSubmit} > Add Asset </button>
+      <br />
+      <button type="button" onClick={onSubmit}>
+        {" "}
+        Add Asset{" "}
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default AddAsset
+export default AddAsset;

@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import { addOnwer } from './InteractToContract'
+import React, { useState } from "react";
+import { addOnwer } from "./InteractToContract";
 
-const AddLandOwner = ({contract, userAddress}) => {
-  const [ownerAddress, setOwnerAddress] = useState("")
-  const [ownerName, setOwnerName] = useState("")
-  
+const AddLandOwner = ({ contract, userAddress }) => {
+  const [ownerAddress, setOwnerAddress] = useState("");
+  const [ownerName, setOwnerName] = useState("");
+
   const onSubmit = async () => {
     console.log(ownerAddress);
     console.log(ownerName);
 
-    await addOnwer(contract, ownerAddress, ownerName, userAddress)
-  }
+    await addOnwer(contract, ownerAddress, ownerName, userAddress);
+  };
 
   return (
     <>
-      <h1>Add Inspector</h1> 
+      <h1>Add Inspector</h1>
       <label>Owner Address: </label>
       <input
         type="text"
@@ -24,8 +24,8 @@ const AddLandOwner = ({contract, userAddress}) => {
           setOwnerAddress(e.target.value);
         }}
       />
-      <br/>
-      <label>Owner Name:  </label>
+      <br />
+      <label>Owner Name: </label>
       <input
         type="text"
         required
@@ -34,10 +34,13 @@ const AddLandOwner = ({contract, userAddress}) => {
           setOwnerName(e.target.value);
         }}
       />
-      <br/>
-      <button type="button" onClick={onSubmit} > Add New Owner </button>
+      <br />
+      <button type="button" onClick={onSubmit}>
+        {" "}
+        Add New Owner{" "}
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default AddLandOwner
+export default AddLandOwner;

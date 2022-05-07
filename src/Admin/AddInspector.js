@@ -1,22 +1,20 @@
-import React, { useState } from 'react'
-import { addInsepctor } from './InteractToContract'
+import React, { useState } from "react";
+import { addInsepctor } from "./InteractToContract";
 
-const AddInspector = ({contract, userAddress}) => {
-
-  const [inspectorAddress, setInspectorAddress] = useState("")
-  const [inspectorName, setInspectorName] = useState("")
+const AddInspector = ({ contract, userAddress }) => {
+  const [inspectorAddress, setInspectorAddress] = useState("");
+  const [inspectorName, setInspectorName] = useState("");
 
   const onSubmit = async () => {
     console.log(inspectorAddress);
     console.log(inspectorName);
 
     await addInsepctor(contract, inspectorAddress, inspectorName, userAddress);
-    
-  }
+  };
 
   return (
     <>
-      <h1>Add Inspector</h1> 
+      <h1>Add Inspector</h1>
       <label>Owner Address: </label>
       <input
         type="text"
@@ -26,8 +24,8 @@ const AddInspector = ({contract, userAddress}) => {
           setInspectorAddress(e.target.value);
         }}
       />
-      <br/>
-      <label>Owner Name:  </label>
+      <br />
+      <label>Owner Name: </label>
       <input
         type="text"
         required
@@ -36,10 +34,13 @@ const AddInspector = ({contract, userAddress}) => {
           setInspectorName(e.target.value);
         }}
       />
-      <br/>
-      <button type="button" onClick={onSubmit} > Add New Owner </button>
+      <br />
+      <button type="button" onClick={onSubmit}>
+        {" "}
+        Add New Owner{" "}
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default AddInspector
+export default AddInspector;
