@@ -1,7 +1,11 @@
-# prerequisite: MetaMask installed
+# Land Registry System
+Land Registry System using blockchain. 
 
-# 1. npm install
-# 2. npm run build
-# 3. npm start
+### prerequisite: MetaMask installed
 
-## Intention here is to have a playground for dapp development using the React stack.
+* install dependencies
+`npm install`
+* run build
+`npm run build`
+* start server
+`npm start`
