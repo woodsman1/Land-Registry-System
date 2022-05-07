@@ -3,14 +3,14 @@ import { addInsepctor } from './InteractToContract'
 
 const AddInspector = ({contract, userAddress}) => {
 
-  const [ownerAddress, setOwnerAddress] = useState("")
-  const [ownerName, setOwnerName] = useState("")
+  const [inspectorAddress, setInspectorAddress] = useState("")
+  const [inspectorName, setInspectorName] = useState("")
 
   const onSubmit = async () => {
-    console.log(ownerAddress);
-    console.log(ownerName);
+    console.log(inspectorAddress);
+    console.log(inspectorName);
 
-    await addInsepctor(contract, ownerAddress, ownerName, userAddress);
+    await addInsepctor(contract, inspectorAddress, inspectorName, userAddress);
     
   }
 
@@ -21,9 +21,9 @@ const AddInspector = ({contract, userAddress}) => {
       <input
         type="text"
         required
-        value={ownerAddress}
+        value={inspectorAddress}
         onChange={(e) => {
-          setOwnerAddress(e.target.value);
+          setInspectorAddress(e.target.value);
         }}
       />
       <br/>
@@ -31,9 +31,9 @@ const AddInspector = ({contract, userAddress}) => {
       <input
         type="text"
         required
-        value={ownerName}
+        value={inspectorName}
         onChange={(e) => {
-          setOwnerName(e.target.value);
+          setInspectorName(e.target.value);
         }}
       />
       <br/>

@@ -1,10 +1,9 @@
 import Web3 from 'web3';
 
-
-export const addInsepctor = async (contract, new_user_address, new_user_name, _address) => {
+export const addOnwer = async (contract, new_user_address, new_user_name, _address) => {
   try{
     const formated_address = Web3.utils.toChecksumAddress(new_user_address);
-    await contract.methods.addInspector(formated_address, new_user_name)
+    await contract.methods.addAndVerifyUser(formated_address, new_user_name)
     .send({from: _address})
     .then(response => {
       console.log(response)
@@ -16,9 +15,10 @@ export const addInsepctor = async (contract, new_user_address, new_user_name, _a
 }
 
 
-export const rejectAsset = async (contract, assetId, _address) => {
+export const addAsset = async (contract,assetId, new_user_address, assetValue, _address) => {
   try{
-    await contract.methods.rejectAsset(assetId)
+    const formated_address = Web3.utils.toChecksumAddress(new_user_address);
+    await contract.methods.addAsset(assetId, formated_address, assetValue)
     .send({from: _address})
     .then(response => {
       console.log(response)
