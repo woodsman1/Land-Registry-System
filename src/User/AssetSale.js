@@ -31,14 +31,13 @@ const AssetSale = ({ assetId, contract, userAddress }) => {
 
   return (
     <>
-      <div className="asset">
         {assetDetail.status == 2 ? (
-          <>
-            <h4>Asset Id : {assetId}</h4>
-            <p>Owner Address : {assetDetail.currOwner}</p>
-            <p>Property Value : $ {assetDetail.value}</p>
-            <p>assetStatus : {assetStatus[assetDetail.status]}</p>
-            {status == 1 ? (
+          <tr>
+            <td>Asset Id : {assetId}</td>
+            <td>Owner Address : {assetDetail.currOwner}</td>
+            <td>Property Value : $ {assetDetail.value}</td>
+            <td>assetStatus : {assetStatus[assetDetail.status]}</td>
+            <td> {status == 1 ? (
               <button onClick={changeStatus}>Mark Asset for Sale</button>
             ) : (
               ""
@@ -48,14 +47,41 @@ const AssetSale = ({ assetId, contract, userAddress }) => {
             ) : (
               ""
             )}
-          </>
-        ) : (
-          ""
-        )}
-      </div>
-      <br />
+          
+        </td>
+        </tr>
+        ): ("")} 
     </>
   );
+  // return (
+  //   <>
+  //     <tr>
+  //       <td> {assetId} </td>
+  //       <td>{assetDetail.currOwner} </td>
+  //       <td> {assetDetail.value} </td>
+  //       <td> {assetStatus[assetDetail.status]} </td>
+  //       <td>
+  //         {" "}
+  //         {status == 1 ? (
+  //           <button onClick={changeStatus}>Mark Asset for Sale</button>
+  //         ) : (
+  //           ""
+  //         )}
+  //         {status == 2 ? (
+  //           <button onClick={changeStatus}>Remove Asset from Sale</button>
+  //         ) : (
+  //           ""
+  //         )}
+  //       </td>
+  //     </tr>
+  //     {/* <h4>Asset Id : {assetId}</h4>
+  //       <p>Owner Address : {assetDetail.currOwner}</p>
+  //       <p>Property Value : $ {assetDetail.value}</p>
+  //       <p>assetStatus : {assetStatus[assetDetail.status]}</p> */}
+
+  //     <br />
+  //   </>
+  // );
 };
 
 export default AssetSale;

@@ -10,7 +10,43 @@ const RejectAsset = ({ contract, userAddress }) => {
 
   return (
     <>
-      <h1>Reject Asset</h1>
+<div id="layoutSidenav_content" />
+      <main />
+      <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+          <div class="col-md-6 border-right">
+            <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Reject Asset</h4>
+              </div>
+
+
+                <div class="col-md-12">
+                  <label class="labels">Asset ID:</label>
+                  <input
+                    type="number"
+                    required
+                    class="form-control"
+                    value={assetId}
+                    onChange={(e) => {
+                      setAssetId(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div class="mt-5 text-center">
+                <button class="btn btn-primary profile-button" onClick={onSubmit}>
+                  {" "}
+                  Reject Asset{" "}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      {/* <h1>Reject Asset</h1>
       <label>Asset Id: </label>
       <input
         type="number"
@@ -24,7 +60,7 @@ const RejectAsset = ({ contract, userAddress }) => {
       <button type="button" onClick={onSubmit}>
         {" "}
         Reject Asset{" "}
-      </button>
+      </button> */}
     </>
   );
 };

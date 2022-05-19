@@ -25,21 +25,19 @@ const AllAssets = ({ contract, assetId, userAddress }) => {
 
   return (
     <>
-      <div className="asset">
+      <tr>
         {assetDetail.currOwner != Web3.utils.toChecksumAddress(userAddress) ? (
           <>
-            <h4>Asset Id : {assetId}</h4>
-            <p>
-              Owner Address : {assetDetail.currOwner} {userAddress}
-            </p>
-            <p>Property Value : $ {assetDetail.value}</p>
-            <p>assetStatus : {assetStatus[assetDetail.status]}</p>
-            <button onClick={buyAsset}>Buy Asset</button>
+            <td> {assetId}</td>
+            <td> {assetDetail.currOwner} {userAddress} </td>
+            <td> {assetDetail.value}</td>
+            <td> {assetStatus[assetDetail.status]}</td>
+            <td><button onClick={buyAsset}>Buy Asset</button></td>
           </>
         ) : (
           ""
         )}
-      </div>
+        </tr>
       <br />
     </>
   );

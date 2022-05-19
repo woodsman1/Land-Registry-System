@@ -30,12 +30,13 @@ const Asset = ({ assetId, contract, userAddress }) => {
 
   return (
     <>
-      <div className="asset">
-        <h4>Asset Id : {assetId}</h4>
-        <p>Owner Address : {assetDetail.currOwner}</p>
-        <p>Property Value : $ {assetDetail.value}</p>
-        <p>assetStatus : {assetStatus[assetDetail.status]}</p>
-        {status == 1 ? (
+    
+      <tr>
+        <td> {assetId} </td>
+       <td>{assetDetail.currOwner} </td>
+        <td> {assetDetail.value} </td>
+        <td> {assetStatus[assetDetail.status]} </td>
+        <td> {status == 1 ? (
           <button onClick={changeStatus}>Mark Asset for Sale</button>
         ) : (
           ""
@@ -44,8 +45,15 @@ const Asset = ({ assetId, contract, userAddress }) => {
           <button onClick={changeStatus}>Remove Asset from Sale</button>
         ) : (
           ""
-        )}
-      </div>
+        )}</td>
+       
+        </tr>
+        {/* <h4>Asset Id : {assetId}</h4>
+        <p>Owner Address : {assetDetail.currOwner}</p>
+        <p>Property Value : $ {assetDetail.value}</p>
+        <p>assetStatus : {assetStatus[assetDetail.status]}</p> */}
+        
+      
       <br />
     </>
   );

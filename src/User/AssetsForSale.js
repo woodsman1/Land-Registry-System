@@ -15,8 +15,26 @@ const AssetsForSale = ({ contract, userAddress }) => {
 
   return (
     <>
-      <h3> All Assets for Sale  </h3>
-      <div className="assets-details">
+     <h3> All Assets For Sale </h3>
+      <div class="card mb-4">
+                        
+      <div class="card-body">
+      
+      <table class="table table-hover">
+      
+      
+        <thead>
+      <tr>
+      <th> Asset ID </th>
+        <th> Owner Address </th>
+        <th> Property Value </th>
+        <th> Asset Status </th>
+        <th> Choose Action </th>
+      </tr>
+      </thead>
+      <tbody>
+      {/* <div className="assets-details"> */}
+        
         {myAssets.map((assetId, index) => (
           <AllAssets
             key={index}
@@ -25,6 +43,10 @@ const AssetsForSale = ({ contract, userAddress }) => {
             userAddress={userAddress}
           />
         ))}
+        </tbody>
+        </table>
+      
+      </div>
       </div>
     </>
   );

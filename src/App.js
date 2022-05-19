@@ -1,6 +1,6 @@
-// https://www.google.com/search?client=firefox-b-d&q=using+react+with+metamask&channel=crow2#kpvalbx=_2OI_XtWsEMef9QPp1LCgAg17
+
 import React, { useState, useEffect } from "react";
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import { getAccount } from "./WalletConnection/Web3Client";
 import { getUsers, getUserType, connectToContract } from "./IntractToContract";
 
